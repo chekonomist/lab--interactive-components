@@ -67,6 +67,7 @@ document.querySelector('.btn').addEventListener('click', function Validation(e){
 /*CHECKBOX VALIDATION*/
   var checkboxEl = registerForm.elements.termsofservice
   var checkboxFeedback = registerForm.querySelector('.validation--terms-of-service')
+
   if (checkboxEl.checked === true) {
     checkboxFeedback.textContent = 'Success'
   }

@@ -1,4 +1,5 @@
 /* 01 - UI TABS :: Complete AFTER variables */
+// console.log("probando");
 
 var membershipHTML = `
   <h2>Join Us Today!</h2>
@@ -65,6 +66,21 @@ var pressHTML = `
 
 
 /* 01 - UI TABS :: Your code below.... */
+var contentBoxEl = document.querySelector('.ui-tabs__content')
+// document.querySelector('.ui-tabs__content')
+//   .innerHTML = programsHTML
+document.querySelector("li[data-tab='membership']").addEventListener('click', function showNewContent(e){
+  contentBoxEl.innerHTML = membershipHTML
+})
 
-document.querySelector('.ui-tabs__content')
-  .innerHTML = membershipHTML
+document.querySelector("li[data-tab='programs']").addEventListener('click', function showNewContent(e){
+  contentBoxEl.innerHTML = programsHTML
+})
+
+document.querySelector("li[data-tab='screenings']").addEventListener('click', function showNewContent(e){
+  contentBoxEl.innerHTML = screeningsHTML
+})
+
+document.querySelector("li[data-tab='press']").addEventListener('click', function showNewContent(e){
+  contentBoxEl.innerHTML = pressHTML
+})

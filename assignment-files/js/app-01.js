@@ -67,20 +67,44 @@ var pressHTML = `
 
 /* 01 - UI TABS :: Your code below.... */
 var contentBoxEl = document.querySelector('.ui-tabs__content')
-// document.querySelector('.ui-tabs__content')
-//   .innerHTML = programsHTML
-document.querySelector("li[data-tab='membership']").addEventListener('click', function showNewContent(e){
+var listEl = document.querySelectorAll('.ui-tabs__tabslist')
+var membershipBox = document.querySelector("li[data-tab='membership']")
+var programsBox = document.querySelector("li[data-tab='programs']")
+var screeningsBox = document.querySelector("li[data-tab='screenings']")
+var pressBox = document.querySelector("li[data-tab='press']")
+
+function toggleSelectedClass(e){
+  var allTheBoxesEl = [...document.querySelectorAll('.ui-tabs__tab')]
+  var selectedContentHtml = e.target.innerHTML.toLowerCase()
+  var selectedBoxEl = document.querySelector(`li[data-tab=${selectedContentHtml}]`)
+
+  allTheBoxesEl.forEach(function removeClass(i){
+    i.classList.remove('ui-tabs__tab--selected')
+  })
+
+  selectedBoxEl.classList.add('ui-tabs__tab--selected')
+}
+
+membershipBox
+.addEventListener('click', function showNewContent(e){
   contentBoxEl.innerHTML = membershipHTML
+  toggleSelectedClass(e)
 })
 
-document.querySelector("li[data-tab='programs']").addEventListener('click', function showNewContent(e){
+programsBox
+.addEventListener('click', function showNewContent(e){
   contentBoxEl.innerHTML = programsHTML
+  toggleSelectedClass(e)
 })
 
-document.querySelector("li[data-tab='screenings']").addEventListener('click', function showNewContent(e){
+screeningsBox
+.addEventListener('click', function showNewContent(e){
   contentBoxEl.innerHTML = screeningsHTML
+  toggleSelectedClass(e)
 })
 
-document.querySelector("li[data-tab='press']").addEventListener('click', function showNewContent(e){
+pressBox
+.addEventListener('click', function showNewContent(e){
   contentBoxEl.innerHTML = pressHTML
+  toggleSelectedClass(e)
 })
